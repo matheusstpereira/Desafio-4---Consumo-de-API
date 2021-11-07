@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <header>Conversor Moedas</header>
+  <form action="#">
+    <div class="amount">
+      <p>Inserir Quantidade</p>
+      <input matInput type="number" class="example-right-align" placeholder="0,00" required [(ngModel)]="valorInserido" name="valorSelecionado">
+    </div>
+    <div class="drop-list">
+      <div class="from">
+        <p>De</p>
+        <div class="select-box">
+          <mat-select required [(value)]="moedaDeX" class="mat-select-panel">
+            <mat-option *ngFor="let moeda of moedas" [value]="moeda.sigla">
+              {{moeda.sigla}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+
+      <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+      <div class="to">
+        <p>Para</p>
+        <div class="select-box">
+          <mat-select required [(value)]="moedaParaX">
+            <mat-option *ngFor="let moeda of moedas" [value]="moeda.sigla">
+              {{moeda.sigla}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+    </div>
+    <br>
+    <button mat-raised-button (click)="calcularConversao()">Realizar Calculo</button>
+    <div class="exchange-rate">Valor Convertido: {{resultado}} {{moedaParaX}}</div>
+
+  </form>
+</div>
